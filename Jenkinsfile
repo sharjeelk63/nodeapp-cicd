@@ -49,5 +49,14 @@ pipeline {
          }
         }
       }
+
+    stage('Delpoying on EKS Cluster') {
+      steps{
+        // Deploy the image on EKS Cluster
+        script{
+          sh "kubectl create -f nodejs-deploy.yaml"
+        }
+      }  
     }
+  }  
 }
